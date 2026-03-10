@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido/a - Casita Azul</title>
+    <style>
+        /* Fondo y contenedor principal */
+        body, html { margin: 0; padding: 0; height: 100%; display: flex; justify-content: center; align-items: center; background-color: #f4f6f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .container { position: relative; width: 100%; max-width: 450px; line-height: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 15px; overflow: hidden; }
+        .main-image { width: 100%; height: auto; display: block; }
+
+        /* ZONAS TÁCTILES (BOTONES INVISIBLES) */
+        .btn-overlay { 
+            position: absolute; 
+            left: 10%; 
+            width: 80%; 
+            height: 10%; 
+            cursor: pointer; 
+            text-decoration: none;
+            border-radius: 50px;
+            /* background: rgba(255,0,0,0.2); <-- Quita el comentario para ver los botones y ajustarlos, luego vuelve a comentarlo */
+        }
+        
+        /* Posición exacta sobre los botones del dibujo */
+        .btn-wifi { top: 43.5%; }
+        .btn-whatsapp { top: 60.5%; }
+
+        /* Ventana emergente (Modal) para WiFi */
+        #wifi-modal {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: white; padding: 30px; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            z-index: 100; text-align: center; width: 85%; max-width: 320px; line-height: 1.6;
+        }
+        .wifi-title { margin-top: 0; color: #2d5a27; font-size: 1.4rem; }
+        .wifi-data { background: #f9f9f9; padding: 15px; border-radius: 12px; margin: 15px 0; border: 1px dashed #ccc; }
+        .close-btn { width: 100%; padding: 12px; background: #2d5a27; color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1rem; }
+        
+        /* Capa oscura de fondo para el modal */
+        #overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99; }
+    </style>
+</head>
+<body>
+
+<div id="overlay-bg" onclick="closeWifi()"></div>
+
+<div class="container">
+    <img src="TU_ENLACE_DIRECTO_AQUI" alt="Bienvenido a Casita Azul" class="main-image">
+    
+    <div class="btn-overlay btn-wifi" onclick="showWifi()"></div>
+
+    <a href="https://wa.me/573216970398" class="btn-overlay btn-whatsapp" target="_blank"></a>
+</div>
+
+<div id="wifi-modal">
+    <h3 class="wifi-title">Conexión Wi-Fi 📶</h3>
+    <div class="wifi-data">
+        <p style="margin: 5px 0;"><b>Red:</b>CASITA-AZUL</p>
+        <p style="margin: 5px 0;"><b>Clave:</b>Salento999</p>
+    </div>
+    <p style="font-size: 0.9rem; color: #666;">Copia la clave y conéctate en los ajustes de tu celular.</p>
+    <button class="close-btn" onclick="closeWifi()">ENTENDIDO</button>
+</div>
+
+<script>
+    function showWifi() { 
+        document.getElementById('wifi-modal').style.display = 'block'; 
+        document.getElementById('overlay-bg').style.display = 'block'; 
+    }
+    function closeWifi() { 
+        document.getElementById('wifi-modal').style.display = 'none'; 
+        document.getElementById('overlay-bg').style.display = 'none'; 
+    }
+</script>
+
+</body>
+</html>
